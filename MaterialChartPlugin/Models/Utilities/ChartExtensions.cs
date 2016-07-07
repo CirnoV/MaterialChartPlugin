@@ -61,7 +61,7 @@ namespace MaterialChartPlugin.Models.Utilities
                 case DisplayedPeriod.ThreeYears:
                     return TimeSpan.FromDays(6);
                 default:
-                    throw new ArgumentException("periodの値が不正です");
+                    throw new ArgumentException("period값이 올바르지 않습니다.");
             }
         }
 
@@ -81,7 +81,7 @@ namespace MaterialChartPlugin.Models.Utilities
                 case DisplayedPeriod.ThreeYears:
                     return 0.25;
                 default:
-                    throw new ArgumentException("periodの値が不正です");
+                    throw new ArgumentException("period값이 올바르지 않습니다.");
             }
         }
 
@@ -141,7 +141,7 @@ namespace MaterialChartPlugin.Models.Utilities
                 case DisplayedPeriod.ThreeYears:
                     return TimeSpan.FromDays(365 * 3);
                 default:
-                    throw new ArgumentException("periodの値が不正です");
+                    throw new ArgumentException("period값이 올바르지 않습니다.");
             }
         }
     }

@@ -9,10 +9,10 @@
       d:DataContext="{d:DesignInstance  local:MaterialChartPlugin}">
     <Grid>
         <StackPanel Margin="12">
-            <GroupBox Header="CSVエクスポート設定">
+            <GroupBox Header="CSV 내보내기 설정">
                 <StackPanel Orientation="Vertical" Name="CSVExportSettings">
-                    <CheckBox IsChecked="{Binding CsvRecordSummary}" Content="集計を日別にする"/>
-                    <CheckBox IsChecked="{Binding CsvRecordOrder}" Content="日付の降順に出力する"/>
+					<CheckBox IsChecked="{Binding CsvRecordSummary}" Content="집계를 일별로 하기"/>
+					<CheckBox IsChecked="{Binding CsvRecordOrder}" Content="날짜 내림차순으로 출력"/>
                 </StackPanel>
             </GroupBox>
         </StackPanel>

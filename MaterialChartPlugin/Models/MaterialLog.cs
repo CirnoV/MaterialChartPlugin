@@ -74,8 +74,8 @@ namespace MaterialChartPlugin.Models
                 catch (ProtoException ex)
                 {
                     plugin.InvokeNotifyRequested(new Grabacr07.KanColleViewer.Composition.NotifyEventArgs(
-                        "MaterialChartPlugin.LoadFailed", "読み込み失敗",
-                        "資材データの読み込みに失敗しました。データが破損している可能性があります。"));
+                        "MaterialChartPlugin.LoadFailed", "로드 실패",
+						"자원 데이터 읽기 실패. 데이터가 손상될 수 있습니다."));
                     System.Diagnostics.Debug.WriteLine(ex);
                     if (this.History == null)
                         this.History = new ObservableCollection<TimeMaterialsPair>();
@@ -83,8 +83,8 @@ namespace MaterialChartPlugin.Models
                 catch (IOException ex)
                 {
                     plugin.InvokeNotifyRequested(new Grabacr07.KanColleViewer.Composition.NotifyEventArgs(
-                        "MaterialChartPlugin.LoadFailed", "読み込み失敗",
-                        "資材データの読み込みに失敗しました。必要なアクセス権限がない可能性があります。"));
+                        "MaterialChartPlugin.LoadFailed", "로드 실패",
+						"자원 데이터 읽기 실패. 접근 권한이 있는지 확인해주세요."));
                     System.Diagnostics.Debug.WriteLine(ex);
                     if (this.History == null)
                         this.History = new ObservableCollection<TimeMaterialsPair>();
@@ -108,8 +108,8 @@ namespace MaterialChartPlugin.Models
             catch (IOException ex)
             {
                 plugin.InvokeNotifyRequested(new Grabacr07.KanColleViewer.Composition.NotifyEventArgs(
-                    "MaterialChartPlugin.SaveFailed", "読み込み失敗",
-                    "資材データの保存に失敗しました。必要なアクセス権限がない可能性があります。"));
+                    "MaterialChartPlugin.SaveFailed", "저장 실패",
+					"자원 데이터 저장 실패. 접근 권한이 있는지 확인해주세요."));
                 System.Diagnostics.Debug.WriteLine(ex);
             }
         }
@@ -135,8 +135,8 @@ namespace MaterialChartPlugin.Models
             catch (IOException ex)
             {
                 plugin.InvokeNotifyRequested(new Grabacr07.KanColleViewer.Composition.NotifyEventArgs(
-                    "MaterialChartPlugin.SaveFailed", "保存失敗",
-                    "資材データの保存に失敗しました。必要なアクセス権限がない可能性があります。"));
+                    "MaterialChartPlugin.SaveFailed", "저장 실패",
+					"자원 데이터 저장 실패. 접근 권한이 있는지 확인해주세요."));
                 System.Diagnostics.Debug.WriteLine(ex);
             }
         }
@@ -155,7 +155,7 @@ namespace MaterialChartPlugin.Models
 
                 using (var writer = new StreamWriter(csvFilePath, false, Encoding.UTF8))
                 {
-                    await writer.WriteLineAsync("時刻,燃料,弾薬,鋼材,ボーキサイト,高速修復材,開発資材,高速建造材,改修資材");
+                    await writer.WriteLineAsync("시각,연료,탄약,강재,보크사이트,고속수복재,개발자재,고속건조재,개수자재");
                     
 
                     if (MaterialChartSettings.Default.CsvRecordSummary)
@@ -196,8 +196,8 @@ namespace MaterialChartPlugin.Models
                 }
 
                 plugin.InvokeNotifyRequested(new Grabacr07.KanColleViewer.Composition.NotifyEventArgs(
-                    "MaterialChartPlugin.CsvExportCompleted", "エクスポート完了",
-                    $"資材データがエクスポートされました: {csvFilePath}")
+                    "MaterialChartPlugin.CsvExportCompleted", "내보내기 완료",
+                    $"자원 데이터를 저장했습니다: {csvFilePath}")
                 {
                     Activated = () =>
                     {
@@ -208,8 +208,8 @@ namespace MaterialChartPlugin.Models
             catch (IOException ex)
             {
                 plugin.InvokeNotifyRequested(new Grabacr07.KanColleViewer.Composition.NotifyEventArgs(
-                    "MaterialChartPlugin.ExportFailed", "エクスポート失敗",
-                    "資材データのエクスポートに失敗しました。必要なアクセス権限がない可能性があります。"));
+                    "MaterialChartPlugin.ExportFailed", "내보내기 실패",
+                    "자원 데이터 저장 실패. 접근 권한이 있는지 확인해주세요."));
                 System.Diagnostics.Debug.WriteLine(ex);
             }
         }
@@ -219,8 +219,8 @@ namespace MaterialChartPlugin.Models
             await LoadAsync(filePath, async () =>
                 {
                     plugin.InvokeNotifyRequested(new Grabacr07.KanColleViewer.Composition.NotifyEventArgs(
-                        "MaterialChartPlugin.ImportComplete", "インポート完了",
-                        "資材データのインポートに成功しました。"));
+                        "MaterialChartPlugin.ImportComplete", "불러오기 완료",
+                        "자원 데이터를 성공적으로 불러왔습니다."));
 
                     var materials = KanColleClient.Current.Homeport.Materials;
                     History.Add(new TimeMaterialsPair(DateTime.Now, materials.Fuel, materials.Ammunition, materials.Steel,
@@ -239,8 +239,8 @@ namespace MaterialChartPlugin.Models
             var filePath = Path.Combine(ExportDirectoryPath, fileName);
             await SaveAsync(ExportDirectoryPath, filePath, () =>
                 plugin.InvokeNotifyRequested(new Grabacr07.KanColleViewer.Composition.NotifyEventArgs(
-                    "MaterialChartPlugin.ExportComplete", "エクスポート完了",
-                    $"資材データがエクスポートされました: {filePath}")
+                    "MaterialChartPlugin.ExportComplete", "내보내기 완료",
+                    $"자원 데이터를 저장했습니다: {filePath}")
                 {
                     Activated = () =>
                     {

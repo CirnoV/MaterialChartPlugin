@@ -176,7 +176,7 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                 <StackPanel Orientation="Horizontal" Margin="0" VerticalAlignment="Center">
-                    <TextBlock Text="グラフの表示期間" Margin="0,0,10,0" VerticalAlignment="Center"/>
+					<TextBlock Text="그래프 표시 기간" Margin="0,0,10,0" VerticalAlignment="Center"/>
                     <Custom:PromptComboBox x:Name="promptComboBox" ItemsSource="{Binding DisplayedPeriods}" 
 						DisplayMemberPath="Display" SelectedValuePath="Value" 
 						SelectedValue="{Binding Value, Mode=Twoway, Source={x:Static settings:ChartSettings.DisplayedPeriod}, UpdateSourceTrigger=PropertyChanged}"
@@ -189,24 +189,24 @@
                     <chartingToolkit:DateTimeAxis Orientation="X" Minimum="{Binding XMin}" Maximum="{Binding XMax}" MajorTickMarkStyle="{DynamicResource MajorTickStyle}" Location="Bottom" AxisLabelStyle="{StaticResource DateTimeAxisLabelStyle}" GridLineStyle="{DynamicResource GridLineStyle}" ShowGridLines="True" />
                     <chartingToolkit:LinearAxis Orientation="Y" Minimum="0" Maximum="{Binding YMax1}" MajorTickMarkStyle="{DynamicResource MajorTickStyle}" Location="Left" ShowGridLines="True" GridLineStyle="{DynamicResource GridLineStyle}" MinWidth="40"/>
                 </chartingToolkit:Chart.Axes>
-                <chartingToolkit:AreaSeries DependentValuePath="Y" IndependentValuePath="X" ItemsSource="{Binding FuelSeries}" Title="燃料" Style="{DynamicResource SimpleAreaSeriesStyle}" BorderBrush="#FF5DA353"/>
-                <chartingToolkit:AreaSeries DependentValuePath="Y" IndependentValuePath="X" ItemsSource="{Binding AmmunitionSeries}" Title="弾薬"  Style="{DynamicResource SimpleAreaSeriesStyle}" BorderBrush="#FF9A8F61"/>
-                <chartingToolkit:AreaSeries DependentValuePath="Y" IndependentValuePath="X" ItemsSource="{Binding SteelSeries}" Title="鋼材" Style="{DynamicResource SimpleAreaSeriesStyle}" BorderBrush="#FFC9C9C9"/>
-                <chartingToolkit:AreaSeries DependentValuePath="Y" IndependentValuePath="X" ItemsSource="{Binding BauxiteSeries}" Title="ボーキサイト" Style="{DynamicResource SimpleAreaSeriesStyle}" BorderBrush="#FFC7844D"/>
-                <chartingToolkit:LineSeries DependentValuePath="Y" IndependentValuePath="X" ItemsSource="{Binding StorableLimitSeries}" Title="回復上限" Style="{DynamicResource SimpleLineSeriesStyle}" BorderBrush="#FF4E3876"/>
+                <chartingToolkit:AreaSeries DependentValuePath="Y" IndependentValuePath="X" ItemsSource="{Binding FuelSeries}" Title="연료" Style="{DynamicResource SimpleAreaSeriesStyle}" BorderBrush="#FF5DA353"/>
+                <chartingToolkit:AreaSeries DependentValuePath="Y" IndependentValuePath="X" ItemsSource="{Binding AmmunitionSeries}" Title="탄약"  Style="{DynamicResource SimpleAreaSeriesStyle}" BorderBrush="#FF9A8F61"/>
+                <chartingToolkit:AreaSeries DependentValuePath="Y" IndependentValuePath="X" ItemsSource="{Binding SteelSeries}" Title="강재" Style="{DynamicResource SimpleAreaSeriesStyle}" BorderBrush="#FFC9C9C9"/>
+                <chartingToolkit:AreaSeries DependentValuePath="Y" IndependentValuePath="X" ItemsSource="{Binding BauxiteSeries}" Title="보크사이트" Style="{DynamicResource SimpleAreaSeriesStyle}" BorderBrush="#FFC7844D"/>
+                <chartingToolkit:LineSeries DependentValuePath="Y" IndependentValuePath="X" ItemsSource="{Binding StorableLimitSeries}" Title="회복 상한" Style="{DynamicResource SimpleLineSeriesStyle}" BorderBrush="#FF4E3876"/>
             </chartingToolkit:Chart>
             <chartingToolkit:Chart Height="200" Style="{DynamicResource MaterialChartStyle}" Margin="0,25,0,0" >
                 <chartingToolkit:Chart.Axes>
                     <chartingToolkit:DateTimeAxis Orientation="X" Minimum="{Binding XMin}" Maximum="{Binding XMax}" MajorTickMarkStyle="{DynamicResource MajorTickStyle}" Location="Bottom" AxisLabelStyle="{StaticResource DateTimeAxisLabelStyle}" GridLineStyle="{DynamicResource GridLineStyle}" ShowGridLines="True"/>
                     <chartingToolkit:LinearAxis Orientation="Y" Minimum="0" Maximum="{Binding YMax2}" MajorTickMarkStyle="{DynamicResource MajorTickStyle}" Location="Left" GridLineStyle="{DynamicResource GridLineStyle}" ShowGridLines="True" MinWidth="40"/>
                 </chartingToolkit:Chart.Axes>
-                <chartingToolkit:AreaSeries DependentValuePath="Y" IndependentValuePath="X" ItemsSource="{Binding RepairToolSeries}" Title="高速修復材" Style="{DynamicResource SimpleAreaSeriesStyle}" BorderBrush="#FFA2C08B"/>
+                <chartingToolkit:AreaSeries DependentValuePath="Y" IndependentValuePath="X" ItemsSource="{Binding RepairToolSeries}" Title="고속수복재" Style="{DynamicResource SimpleAreaSeriesStyle}" BorderBrush="#FFA2C08B"/>
             </chartingToolkit:Chart>
             <Border BorderBrush="{DynamicResource BorderBrushKey}" BorderThickness="0,0,0,1" Margin="0,20,0,10" />
             <WrapPanel Margin="10,0,10,10">
-                <controls:CallMethodButton Content="バックアップデータのインポート" MethodName="ImportMaterialData" Width="180" HorizontalAlignment="Left" VerticalAlignment="Center" Height="35" Margin="0,5,20,5"/>
-                <controls:CallMethodButton Content="バックアップデータのエクスポート" MethodName="ExportMaterialData" Width="180" HorizontalAlignment="Left" VerticalAlignment="Center" Height="35" Margin="0,5,20,5"/>
-                <controls:CallMethodButton Content=".csv形式でエクスポート" MethodName="ExportAsCsv" Width="180" HorizontalAlignment="Left" VerticalAlignment="Center" Height="35" Margin="0,5,20,5"/>
+                <controls:CallMethodButton Content="백업 데이터 불러오기" MethodName="ImportMaterialData" Width="180" HorizontalAlignment="Left" VerticalAlignment="Center" Height="35" Margin="0,5,20,5"/>
+                <controls:CallMethodButton Content="백업 데이터 내보내기" MethodName="ExportMaterialData" Width="180" HorizontalAlignment="Left" VerticalAlignment="Center" Height="35" Margin="0,5,20,5"/>
+				<controls:CallMethodButton Content=".csv형식으로 내보내기" MethodName="ExportAsCsv" Width="180" HorizontalAlignment="Left" VerticalAlignment="Center" Height="35" Margin="0,5,20,5"/>
             </WrapPanel>
         </StackPanel>
     </ScrollViewer>

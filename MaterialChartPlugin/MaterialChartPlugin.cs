@@ -18,7 +18,7 @@ namespace MaterialChartPlugin
     [Export(typeof(IPlugin))]
     [ExportMetadata("Guid", "56B66906-608A-4BCC-9FE2-6B3B0093F377")]
     [ExportMetadata("Title", "MaterialChart")]
-    [ExportMetadata("Description", "資材の推移をグラフで表示します。")]
+    [ExportMetadata("Description", "자원 변동을 그래프로 표시합니다.")]
     [ExportMetadata("Version", "1.2.0")]
     [ExportMetadata("Author", "@terry_u16")]
     [Export(typeof(ITool))]

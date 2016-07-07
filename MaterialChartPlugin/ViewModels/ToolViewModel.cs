@@ -223,12 +223,12 @@ namespace MaterialChartPlugin.ViewModels
 
             this.DisplayedPeriods = new List<DisplayViewModel<DisplayedPeriod>>()
             {
-                DisplayViewModel.Create(DisplayedPeriod.OneDay, "1日"),
-                DisplayViewModel.Create(DisplayedPeriod.OneWeek, "1週間"),
-                DisplayViewModel.Create(DisplayedPeriod.OneMonth, "1ヶ月"),
-                DisplayViewModel.Create(DisplayedPeriod.ThreeMonths, "3ヶ月"),
-                DisplayViewModel.Create(DisplayedPeriod.OneYear, "1年"),
-                DisplayViewModel.Create(DisplayedPeriod.ThreeYears, "3年")
+                DisplayViewModel.Create(DisplayedPeriod.OneDay, "1일"),
+                DisplayViewModel.Create(DisplayedPeriod.OneWeek, "일주일"),
+                DisplayViewModel.Create(DisplayedPeriod.OneMonth, "1개월"),
+                DisplayViewModel.Create(DisplayedPeriod.ThreeMonths, "3개월"),
+                DisplayViewModel.Create(DisplayedPeriod.OneYear, "1년"),
+                DisplayViewModel.Create(DisplayedPeriod.ThreeYears, "3년")
             };
         }
 
@@ -408,14 +408,14 @@ namespace MaterialChartPlugin.ViewModels
         {
             var fileDialog = new OpenFileDialog()
             {
-                Filter = "データファイル(*.dat)|*dat|すべてのファイル(*.*)|*.*",
+                Filter = "데이터 파일(*.dat)|*dat|모든 파일(*.*)|*.*",
                 FilterIndex = 1,
-                Title = "インポートデータの選択",
+                Title = "불러올 데이터 선택",
             };
 
             if (fileDialog.ShowDialog() == true)
             {
-                var messageBoxResult = MessageBox.Show("インポートすると、現在のデータは上書きされます。\nよろしいですか？", "上書き確認", MessageBoxButton.OKCancel);
+                var messageBoxResult = MessageBox.Show("불러올 시 기존 데이터는 삭제됩니다.", "확인", MessageBoxButton.OKCancel);
                 if (messageBoxResult == MessageBoxResult.OK)
                 {
                     await materialManager.Log.ImportAsync(fileDialog.FileName);
